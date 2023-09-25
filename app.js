@@ -2,10 +2,10 @@ const sumar = require("./modulos/suma")
 const restar = require("./modulos/resta")
 const dividir = require("./modulos/division")
 const multiplicar = require("./modulos/multiplicar")
-const {guardarArchivo} = require("./modulos/escribir")
-const {leer} = require("./modulos/leer")
 
-let variableArchivo = leer()
+const {leer, guardarArchivo} = require("./modulos/leeryescribir")
+
+let archivo = leer()
 
 
    function calcular (numero1,numero2,cb){
@@ -19,8 +19,8 @@ let variableArchivo = leer()
       operador: process.argv[4],
       resultado: resultado
    }
-   variableArchivo.push(objeto)
-   guardarArchivo(variableArchivo)
+   archivo.push(objeto)
+   guardarArchivo(archivo)
       return resultado
   }
   
@@ -28,4 +28,4 @@ let variableArchivo = leer()
   numero2 = +process.argv[3]
  operador = process.argv[4]
 
-  console.log(calcular(numero1,numero2,sumar))
+  console.log(calcular(numero1,numero2,restar))
